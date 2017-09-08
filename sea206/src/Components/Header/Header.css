@@ -1,0 +1,60 @@
+/* * {
+  border: 1px solid red !important;
+} */
+
+/* The navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: #D1D1D1;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Links inside the navbar */
+.navbar a {
+    color: #ffffff;
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 5px;
+    text-decoration: none;
+    font-family: karla;
+    
+    /* justify-content: space-around; */
+}
+
+
+.scroll-to-top {
+    height: 70px;
+    width: 70px;
+}
+
+@media(min-width: 550px) {
+    /* .hamburger {
+        display: none;
+    } */
+    .navbar {
+        overflow: hidden;
+        background-color: #D1D1D1;
+        position: fixed; /* Set the navbar to fixed position */
+        top: 0; /* Position the navbar at the top of the page */
+        width: 100%; /* Full width */
+        display: flex;
+        justify-content: space-around;
+    }
+    .navbar a {
+        color: #ffffff;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-family: karla;
+    
+        /* margin-left: 20%;
+        margin-right: 20%; */
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
