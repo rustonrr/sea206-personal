@@ -18,7 +18,7 @@ class Header extends Component {
         this.setState({
             notScrolled: false
         })
-        console.log('scroll', this.state.notScrolled)
+        // console.log('scroll', this.state.notScrolled)
         if(document.body.scrollTop === 0) {
             this.setState({
                 notScrolled: true

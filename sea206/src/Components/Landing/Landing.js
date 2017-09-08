@@ -6,9 +6,29 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import { slide as Menu } from 'react-burger-menu';
 
+import ScrollEvent from 'react-onscroll';
 
 class Landing extends Component {
+  constructor() {
+    super();
+    this.state = {
+        scrolled: false
+    }
+    this.handleScroll = this.handleScroll.bind(this);
+    // this.handleScrollToTop = this.handleScrollToTop.bind(this);
+}
 
+  handleScroll() {
+      this.setState({
+          scrolled: true
+      })
+      // console.log('scroll1', this.state.scrolled)
+      if(document.body.scrollTop === 0) {
+          this.setState({
+              scrolled: false
+          })
+      }
+  }
 
 
   render() {
@@ -17,12 +37,14 @@ class Landing extends Component {
       
       <div>
 
-          <Menu width={ 200 } >
+        <div hidden={this.state.scrolled}>
+          <Menu hidden={this.state.scrolled} width={ 200 } >
             <a id="home" className="menu-item" href="/">Home</a>
             <a id="about" className="menu-item" href="/market">Shop</a>
             <a id="contact" className="menu-item" href="/about">About</a>
             <a id="contact" className="menu-item" href="/contact">Contact</a>
           </Menu>
+        </div>
 
         <Header />
 
@@ -39,6 +61,7 @@ class Landing extends Component {
         </div>
 
         <Footer />
+        <ScrollEvent handleScrollCallback={this.handleScroll}/>
 
       </div>
     );
