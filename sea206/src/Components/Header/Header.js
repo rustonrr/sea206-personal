@@ -36,12 +36,10 @@ class Header extends Component {
         return (
             <div hidden={this.state.notScrolled}>
                 <div className="navbar">
-                    {/* <div className='menu-item-container'> */}
-                        <a href="/">Home</a>
-                        <a href="/market">Shop</a>
-                        <a href="/about">About</a>
-                        <a href="#">Contact</a>
-                    {/* </div> */}
+                    <a href="/">Home</a>
+                    <a href="/market">Shop</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
                 </div>
 
                 <ScrollToTop showUnder={160}>

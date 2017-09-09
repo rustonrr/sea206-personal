@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Landing.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -49,9 +49,9 @@ class Landing extends Component {
         <Header />
 
         <div className='sea206main'>
-            <Link to='/Market'>
+            {/* <Link to='/Market'>
                 <button className='market-button'>Test link to market</button>
-            </Link>
+            </Link> */}
         </div>
 
         <div className='landing-middle'>

@@ -10,24 +10,16 @@ class Footer extends Component {
                 <div className='home-menu-footer'>
                     <ul>
                         <li className='list-items'>
-                            <Link to='/'>
-                                <button>Home</button>
-                            </Link>
+                            <a href="/">Home</a>
                         </li>
                         <li className='list-items'>
-                            <Link to='/market'>
-                                <button>Shop</button>
-                            </Link>
+                            <a href="/market">Shop</a>
                         </li>
                         <li className='list-items'>
-                            <Link to='/about'>
-                                <button>About</button>
-                            </Link>
+                            <a href="/about">About</a>
                         </li>
                         <li className='list-items'>
-                            <Link to='#'>
-                                <button>Contact</button>
-                            </Link>
+                            <a href="/contact">Contact</a>
                         </li>
                     </ul>
                 </div>

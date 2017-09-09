@@ -1,14 +1,62 @@
+/* * {
+  border: 1px solid red !important;
+} */
+
+.header-logo {
+	text-align: center;
+    padding-top: 30px;
+    padding-left: 30px;
+	font-family: karla;
+	font-weight: bold;
+    font-size: 32px;
+    color: white;
+}
+
 .about-us {
-    font-size: 20px;
-    margin-left: 40px;
-    margin-top: 300px;
+    font-size: 25px;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 80px;
     font-family: karla;
+    color: white;
 }
 
 .brand-statement {
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 15vw;
+    margin-right: 15vw;
     margin-top: 40px;
     margin-bottom: 30px;
     font-family: karla;
+    color: white;
+}
+.paragraph {
+    text-align: left;
+}
+
+.about-container {
+    text-align: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: linear-gradient(
+        rgba(20,20,20, .7), 
+        rgba(20,20,20, .7)),
+        url('https://scontent.fsnc1-1.fna.fbcdn.net/v/t31.0-8/15974880_1223264944417076_2348082762544238497_o.jpg?oh=6f92c0f3282c5d5cb0da56c27e527dd4&oe=5A5DD09B');
+
+    
+}
+
+/* .bm-burger-bars {
+	background: white;
+  } */
+
+
+.about-image {
+    width: 65vw;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    align-items: center;
+    display: inline-block;
 }

@@ -57,53 +57,41 @@ table {
 	padding-left: 20px;
 	font-family: karla;
 	font-weight: bold;
-	font-size: 35px;
+	font-size: 30px;
 }
 
-.store-main {
-    /* margin-top: 44px; */
-    /* height: 20vh; */
-    /* height: 900px; */
-    color: black;
-	background-color: white;
-	display: flex;
-	flex-wrap: wrap;
+.contact-us {
+    font-family: karla;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 12vw;
+    margin-top: 55px;
 }
 
-.products {
-	display: flex;
-	flex-wrap: wrap;
-	margin-top: 30px;
-	margin-left: 70px;
-	margin-right: 70px;
+.contact-info {
+    font-family: 'Open Sans';
+    margin-left: 12vw;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
-.product-list {
-	border: 1px solid black;
-	height: 240px;
-	width: 240px;
-
-	margin-top: 10px;
-	margin-right: 15px;
-	margin-bottom: 20px;
-	margin-left: 10px;
-}
-/* .product-list:hover {
-	border: 1px solid black;
-} */
-
-.product-image {
-	height: 240px;
-	width: auto;
-	opacity: 1;
-	transition: opacity .25s ease-in-out;
-	-moz-transition: opacity .25s ease-in-out;
-	-webkit-transition: opacity .25s ease-in-out;
-}
-.product-image:hover {
-	opacity: 0.3;
+.email-form {
+    margin-left: 12vw;
+    margin-bottom: 40px;
+    font-family: 'Open Sans';
 }
 
-/* .landing-middle {
-    height: 20vh;
-} */
+.input-forms {
+    width: 70vw;
+    height: 25px;
+}
+.input-forms-message {
+    width: 80vw;
+    height: 50px;
+}
+
+@media(min-width: 550px) {
+    .input-forms {
+        width: 30vw;
+    }
+}

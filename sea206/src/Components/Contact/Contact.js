@@ -4,28 +4,17 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import {slide as Menu} from 'react-burger-menu';
 
-import axios from 'axios';
 
 import ScrollEvent from 'react-onscroll';
-import './Market.css';
+import './Contact.css';
 
 class Market extends Component {
     constructor() {
         super();
         this.state = {
-            products: [],
             scrolled: false
         }
         this.handleScroll = this.handleScroll.bind(this);
-    }
-
-    componentDidMount() {
-        axios.get('http://localhost:8001/products').then( (results) => {
-            console.log(results.data);
-            this.setState({
-                products: results.data
-            })
-        })
     }
 
     handleScroll() {
@@ -55,26 +44,49 @@ class Market extends Component {
                     </div> */}
                 </div>
 
-
                 <div>
                     <Header/>
                 </div>
+
                 <div className='header-logo-market'>
                     SEA 206 Clothing
                 </div>
 
-                <div className='store-main'>
-                    <div className='products'>
-                        {this.state.products.map((product, index) => {
-                            return (
-                                <div className='product-list' key={index}>
-                                    {/* <b>Product: </b>{product.productname} */}
-                                    <img className='product-image' src={product.imgurl} />
-                                </div>
-                            )
-                        })}
+                <div>
+                    <div className='contact-us'>
+                        Contact Us
+                    </div>
+                    <div className='contact-info'>
+                        Email us at: sea206clothing@gmail.com
+                        <br />
+                        Text us at: (206) 707-5823
+                        <br />
+                        <br />
+
+                        SEA 206 Clothing
+                        <br />
+                        4557 11th Ave NE #308
+                        <br />
+                        Seattle, WA 98105
+                    </div>
+
+                    <div className='email-form'>
+                        <form action="mailto:rustonreformado@gmail.com" method="post" enctype="text/plain">
+                            <input className='input-forms' type="text" name="name" placeholder='Name' />
+                                <br />
+                            <input className='input-forms' type="text" name="mail" placeholder='Email' />
+                                <br />
+                                <br />
+                                Comments:
+                                <br />
+                            <textarea className='input-forms-message' type="text" name="comment" size="50" rows="3" />
+                                <br />
+                            <input type="submit" value="Send" />
+                            <input type="reset" value="Reset" />
+                        </form>
                     </div>
                 </div>
+
                 <Footer/>
                 <ScrollEvent handleScrollCallback={this.handleScroll}/>
             </div>
