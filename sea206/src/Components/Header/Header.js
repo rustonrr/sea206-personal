@@ -43,7 +43,7 @@ class Header extends Component {
                 </div>
 
                 <ScrollToTop showUnder={160}>
-                    <img className='scroll-to-top' src='http://freevector.co/wp-content/uploads/2011/07/25366-arrow-up-on-a-black-circle-background1.png' />
+                    <img alt='scroll to top' className='scroll-to-top' src='http://freevector.co/wp-content/uploads/2011/07/25366-arrow-up-on-a-black-circle-background1.png' />
                 </ScrollToTop>
 
                 <ScrollEvent handleScrollCallback={this.handleScroll}/>

@@ -65,7 +65,7 @@ class About extends Component {
                         perfect fit.
                     </p>
                 </div>
-                <img className='about-image' src='https://www.rei.com/adventures/assets/adventures/images/trip/gallery/northamerica/sjw_04' />
+                <img alt='about sea206' className='about-image' src='https://www.rei.com/adventures/assets/adventures/images/trip/gallery/northamerica/sjw_04' />
                 <Footer/>
 
                 <ScrollEvent handleScrollCallback={this.handleScroll}/>

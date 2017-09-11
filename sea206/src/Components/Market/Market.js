@@ -5,7 +5,6 @@ import Header from '../Header/Header';
 import {slide as Menu} from 'react-burger-menu';
 
 import axios from 'axios';
-
 import ScrollEvent from 'react-onscroll';
 import './Market.css';
 
@@ -21,7 +20,7 @@ class Market extends Component {
 
     componentDidMount() {
         axios.get('http://localhost:8001/products').then( (results) => {
-            console.log(results.data);
+            // console.log(results.data);
             this.setState({
                 products: results.data
             })
@@ -50,9 +49,6 @@ class Market extends Component {
                         <a id="contact" className="menu-item" href="/about">About</a>
                         <a id="contact" className="menu-item" href="/contact">Contact</a>
                     </Menu>
-                    {/* <div>
-                        test
-                    </div> */}
                 </div>
 
 
@@ -68,8 +64,9 @@ class Market extends Component {
                         {this.state.products.map((product, index) => {
                             return (
                                 <div className='product-list' key={index}>
-                                    {/* <b>Product: </b>{product.productname} */}
-                                    <img className='product-image' src={product.imgurl} />
+                                    <a href={`/market/${product.productid}`}>
+                                        <img alt='product' className='product-image' src={product.imgurl} />
+                                    </a>
                                 </div>
                             )
                         })}
