@@ -14,6 +14,7 @@
     /* height: auto; */
     /* margin-top: 5%; */
     display: inline-block;
+    
 }
 .product-title {
     margin-left: 25px;
@@ -71,6 +72,7 @@
     margin-left: 25px;
     margin-top: 15px;
     font-family: 'Open Sans';
+    font-size: 15px;
 }
 
 .product-description li {
@@ -137,5 +139,4 @@
         width: 100vw;
         margin-top: 4%;
     }
-
 }
