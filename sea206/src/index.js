@@ -5,6 +5,7 @@ import Landing from './Components/Landing/Landing';
 import Market from './Components/Market/Market';
 import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
+import ProductPage from './Components/ProductPage/ProductPage';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -15,7 +16,8 @@ ReactDOM.render(
         <div>
             <Switch>
                 <Route path='/' exact component={Landing} />
-                <Route path='/market' component={Market} />
+                <Route exact path='/market' component={Market} />
+                <Route path='/market/:productID' component={ProductPage} />
                 <Route path='/about' component={About} />
                 <Route path='/contact' component={Contact} />
             </Switch>

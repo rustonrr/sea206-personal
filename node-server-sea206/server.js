@@ -22,6 +22,7 @@ massive( process.env.CONNECTION_STRING ).then( (dbInstance) => {
     // .catch(err => console.log(err) );
     
     app.get('/products', products_controller.getProducts);
+    app.get('/product/:productid', products_controller.getProduct);
     
     const port = process.env.PORT || 8001;
     app.listen(port, () => {
