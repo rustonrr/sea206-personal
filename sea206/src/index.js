@@ -6,6 +6,7 @@ import Market from './Components/Market/Market';
 import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
 import ProductPage from './Components/ProductPage/ProductPage';
+import Cart from './Components/Cart/Cart';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -20,6 +21,7 @@ ReactDOM.render(
                 <Route path='/market/:productID' component={ProductPage} />
                 <Route path='/about' component={About} />
                 <Route path='/contact' component={Contact} />
+                <Route path='/cart' component={Cart} />
             </Switch>
         </div>
     </BrowserRouter>

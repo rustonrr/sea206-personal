@@ -75,7 +75,8 @@ table {
 }
 
 .landing-middle {
-    height: 20vh;
+    /* height: 20vh; */
+    margin-bottom: 10px;
 }
 .fresh {
     font-family: 'Open Sans', sans-serif;
@@ -211,3 +212,24 @@ table {
   .bm-overlay {
 	background: rgba(0, 0, 0, 0.3);
   }
+
+
+.sample-products-container {
+  width: 100%;
+  text-align: center;
+}
+.sample-product-list {
+  /* border: 1px solid black; */
+  display: inline-block;
+}
+
+@media(min-width: 550px) {
+    .sample-products-container {
+      display: flex;
+      justify-content: space-around;
+    }
+    /* .sample-products-list {
+      display: flex;
+      justify-content: space-between;
+    } */
+}

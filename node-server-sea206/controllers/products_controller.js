@@ -20,5 +20,14 @@ module.exports = {
         }
       })
       .catch( () => res.status(500).send() );
+    },
+    getSampleProducts: ( req, res, next ) => {
+      const dbInstance = req.app.get('db');
+
+      dbInstance.get_sample_products()
+      .then(products => { res.status(200).send(products); })
+      .catch( err => { 
+        res.status(500).send(err);
+      });
     }
   };

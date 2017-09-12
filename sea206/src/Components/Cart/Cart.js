@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -6,23 +6,23 @@ import { slide as Menu } from 'react-burger-menu';
 
 import axios from 'axios';
 import ScrollEvent from 'react-onscroll';
-import './Market.css';
+import './Cart.css';
 
-class Market extends Component {
+class Cart extends Component {
     constructor() {
         super();
         this.state = {
-            products: [],
+            cart: [],
             scrolled: false
         }
         this.handleScroll = this.handleScroll.bind(this);
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8001/products').then( (results) => {
-            // console.log(results.data);
+        axios.get('http://localhost:8001/viewCart').then( (results) => {
+            console.log(results.data);
             this.setState({
-                products: results.data
+                cart: results.data
             })
         })
     }
@@ -39,6 +39,7 @@ class Market extends Component {
         }
     }
 
+
     render() {
         return (
             <div>
@@ -51,32 +52,40 @@ class Market extends Component {
                     </Menu>
                 </div>
 
-
                 <div>
                     <Header/>
                 </div>
+
                 <div className='header-logo-market'>
                     SEA 206 Clothing
                 </div>
 
-                <div className='store-main'>
-                    <div className='products'>
-                        {this.state.products.map((product, index) => {
-                            return (
-                                <div className='product-list' key={index}>
-                                    <a href={`/market/${product.productid}`}>
-                                        <img alt='product' className='product-image' src={product.imgurl} />
-                                    </a>
+                <div>
+                    {this.state.cart.map((product, index) => {
+                        return (
+                            <div className='cart-product-container' key={index}>
+                                <div className='cart-image-container' >
+                                    <img alt='cart-product' className='cart-image' src={product.imgurl} />
                                 </div>
-                            )
-                        })}
-                    </div>
+                                <div className='cart-description-container'>
+                                    <h1 className='cart-productname'>{product.productname}</h1>
+                                    <h1 className='cart-price-quantity'>Price: ${product.productprice}.00</h1>
+                                    <br />
+                                    <h1 className='cart-price-quantity'>Quantity: {product.quantity}</h1>
+                                </div>
+                                <hr />
+                            </div>
+                        )
+                    })}
+                    <button className='checkout-button'>Checkout</button>
                 </div>
+
                 <Footer/>
                 <ScrollEvent handleScrollCallback={this.handleScroll}/>
+                
             </div>
         );
     }
 }
 
-export default Market;
+export default Cart;

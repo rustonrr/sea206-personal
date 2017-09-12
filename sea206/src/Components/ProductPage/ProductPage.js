@@ -17,11 +17,12 @@ class ProductPage extends Component {
             scrolled: false
         }
         this.handleScroll = this.handleScroll.bind(this);
+        this.addToCart = this.addToCart.bind(this);
     }
 
     componentDidMount() {
         axios.get(`http://localhost:8001/product/${this.props.match.params.productID}`).then( (results) => {
-
+        console.log(results.data);
             this.setState({
                 product: results.data
             })
@@ -38,6 +39,19 @@ class ProductPage extends Component {
                 scrolled: false
             })
         }
+    }
+
+    addToCart() {
+        console.log('added to cart');
+        let config = {
+            productid: this.state.product.productid,
+            productprice: this.state.product.price,
+            quantity: 1,
+            imgurl: this.state.product.imgurl
+            }
+            axios.post('http://localhost:8001/addToCart', config)
+            .then( (config) => config)
+            .catch( (err) => err);
     }
 
     render() {
@@ -69,7 +83,8 @@ class ProductPage extends Component {
                     <div className='product-description-container'>
                         <h1 className='product-title'>{this.state.product.productname}</h1>
                         <h2 className='product-price'>${this.state.product.price}.00</h2>
-                        <button className='add-to-cart-button'>Add to cart</button>
+                        <button className='add-to-cart-button' onClick={this.addToCart}>Add to cart</button>
+                        <Link to={'/cart'}><button>Cart</button></Link>
 
                         <div className='product-description'>
                             <p>

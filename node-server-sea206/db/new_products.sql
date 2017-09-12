@@ -17,3 +17,31 @@ VALUES ('Hawk Grey Hoodie', 50, 'https://cdn.shopify.com/s/files/1/1612/2077/pro
 --   imgURL text,
 --   size text
 -- );
+
+-- create table cart (
+--     entryid serial primary key,
+--     userid integer,
+--     productid integer,
+--     productprice integer,
+--     quantity integer,
+--     imgURL text
+-- );
+
+-- 1. user visits site, I store a cookie or 
+-- Window.localstorage to track each userID
+
+-- 2. user clicks “add to cart” on one of the products, I add a row to ‘cart’ table with user id, 
+-- product id, price, quantity
+
+-- 3. Then the cart component accesses the table from database, 
+-- select * from cart where userID matches current userID
+
+ 
+-- step 1 do it through postman -> get the table and api working for a fake user (id = 1)
+
+-- Step 2 - get a cart page working
+
+-- Step 3 - set up local storage and plug userid=1 in manually
+
+-- Step 4 - set up add to cart, create user if not exists and stuff... 
+-- just break it down and you'll have it done tonight

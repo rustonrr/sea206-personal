@@ -1,40 +1,47 @@
 import React, { Component } from 'react';
-import './Landing.css';
-// import { Link } from 'react-router-dom';
 
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import { slide as Menu } from 'react-burger-menu';
 
+import axios from 'axios';
 import ScrollEvent from 'react-onscroll';
+import './Landing.css';
 
 class Landing extends Component {
   constructor() {
     super();
     this.state = {
+        products: [],
         scrolled: false
     }
     this.handleScroll = this.handleScroll.bind(this);
-    // this.handleScrollToTop = this.handleScrollToTop.bind(this);
 }
 
-  handleScroll() {
-      this.setState({
-          scrolled: true
-      })
+componentDidMount() {
+    axios.get('http://localhost:8001/sampleproducts').then( (results) => {
+        // console.log(results.data);
+        this.setState({
+            products: results.data
+        })
+    })
+}
+
+handleScroll() {
+    this.setState({
+        scrolled: true
+    })
       // console.log('scroll1', this.state.scrolled)
-      if(document.body.scrollTop === 0) {
-          this.setState({
-              scrolled: false
-          })
-      }
-  }
+    if(document.body.scrollTop === 0) {
+        this.setState({
+            scrolled: false
+        })
+    }
+}
 
 
   render() {
-
     return (
-      
       <div>
 
         <div hidden={this.state.scrolled}>
@@ -58,6 +65,18 @@ class Landing extends Component {
             <div className='fresh'><strong>OUR FRESHEST SEATTLE URBAN WEAR AND PNW ACCESSORIES</strong></div>
             <div className='printed'><p>All of our garments are printed on demand. The printing process typically takes 3-5 business days.</p></div>
             <div className='printed2'><p>Shipping via USPS usually takes 1-3 days.</p></div>
+        </div>
+
+        <div className='sample-products-container'>
+            {this.state.products.map((product, index) => {
+                return (
+                    <div className='sample-product-list' key={index}>
+                        <a href={`/market/${product.productid}`}>
+                            <img alt='product' className='product-image' src={product.imgurl} />
+                        </a>
+                    </div>
+                )
+            })}
         </div>
 
         <Footer />
