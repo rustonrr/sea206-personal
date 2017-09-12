@@ -44,25 +44,67 @@ class ProductPage extends Component {
     }
 
     addToCart() {
-        console.log('added to cart');
-        let config = {
-            productid: this.state.product.productid,
-            productprice: this.state.product.price,
-            quantity: 1,
-            imgurl: this.state.product.imgurl
-            }
-            axios.post('http://localhost:8001/addToCart', config)
-            .then( (config) => config)
-            .catch( (err) => err);
-
         this.setState({
             addedToCart: true
         });
-        setTimeout(() => {
+        setTimeout( () => {
             this.setState({
               addedToCart: false,
             });
           }, 1000);
+
+        let userid = localStorage.getItem('userid');
+        if(!userid) {
+            axios.get('http://localhost:8001/nextID').then( (results) => {
+                let userid = results.data[0].max + 1
+
+                localStorage.setItem('userid', userid);
+
+                console.log(userid);
+                
+                let config = {
+                    userid: localStorage.getItem('userid'),
+                    productid: this.state.product.productid,
+                    productprice: this.state.product.price,
+                    quantity: 1,
+                    imgurl: this.state.product.imgurl
+                    }
+                    axios.post('http://localhost:8001/addToCart', config)
+                    .then( (config) => config)
+                    .catch( (err) => err);
+            })
+        } else {
+            let config = {
+                userid: localStorage.getItem('userid'),
+                productid: this.state.product.productid,
+                productprice: this.state.product.price,
+                quantity: 1,
+                imgurl: this.state.product.imgurl
+                }
+                axios.post('http://localhost:8001/addToCart', config)
+                .then( (config) => config)
+                .catch( (err) => err);
+        }
+
+        // axios.get('http://localhost:8001/nextID').then( (results) => {
+        //     let userid = localStorage.getItem('userid');
+        //     if(userid) {
+        //         console.log('userid exists')
+        //         let config = {
+        //             productid: this.state.product.productid,
+        //             productprice: this.state.product.price,
+        //             quantity: 1,
+        //             imgurl: this.state.product.imgurl
+        //             }
+        //             axios.post('http://localhost:8001/addToCart', config)
+        //             .then( (config) => config)
+        //             .catch( (err) => err);
+        //     } else {
+        //         localStorage.setItem('userid', results.data.max + 1);
+        //     }
+        //     console.log(userid);
+        //     console.log('max', results.data[0].max)
+        // })
     }
 
     render() {

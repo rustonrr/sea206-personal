@@ -20,7 +20,14 @@ class Cart extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8001/viewCart').then( (results) => {
+        let config = {
+            userid: localStorage.getItem('userid')
+        }
+        console.log(config);
+        axios.get('http://localhost:8001/viewCart', {
+            params: {userid: localStorage.getItem('userid')}
+        })
+            .then( (results) => {
             // console.log(results.data);
             this.setState({
                 cart: results.data

@@ -22,6 +22,8 @@ massive( process.env.CONNECTION_STRING ).then( (dbInstance) => {
     app.post('/addToCart', cart_controller.addToCart);
     app.get('/viewCart', cart_controller.viewCart);
     
+    app.get('/nextID', cart_controller.nextID)
+    
     const port = process.env.PORT || 8001;
     app.listen(port, () => {
         console.log(`Server listening on port ${port}`); } );
