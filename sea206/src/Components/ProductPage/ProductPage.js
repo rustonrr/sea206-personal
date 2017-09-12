@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import CartNotification from './CartNotification/CartNotification';
 import {slide as Menu} from 'react-burger-menu';
 
 import axios from 'axios';
@@ -14,7 +15,8 @@ class ProductPage extends Component {
         super();
         this.state = {
             product: { productname: 'no product found'},
-            scrolled: false
+            scrolled: false,
+            addedToCart: false
         }
         this.handleScroll = this.handleScroll.bind(this);
         this.addToCart = this.addToCart.bind(this);
@@ -22,7 +24,7 @@ class ProductPage extends Component {
 
     componentDidMount() {
         axios.get(`http://localhost:8001/product/${this.props.match.params.productID}`).then( (results) => {
-        console.log(results.data);
+        // console.log(results.data);
             this.setState({
                 product: results.data
             })
@@ -52,6 +54,15 @@ class ProductPage extends Component {
             axios.post('http://localhost:8001/addToCart', config)
             .then( (config) => config)
             .catch( (err) => err);
+
+        this.setState({
+            addedToCart: true
+        });
+        setTimeout(() => {
+            this.setState({
+              addedToCart: false,
+            });
+          }, 1000);
     }
 
     render() {
@@ -83,8 +94,12 @@ class ProductPage extends Component {
                     <div className='product-description-container'>
                         <h1 className='product-title'>{this.state.product.productname}</h1>
                         <h2 className='product-price'>${this.state.product.price}.00</h2>
-                        <button className='add-to-cart-button' onClick={this.addToCart}>Add to cart</button>
-                        <Link to={'/cart'}><button>Cart</button></Link>
+                        <div>
+                            <button className='add-to-cart-button' onClick={this.addToCart}>Add to cart</button>
+                            <CartNotification addedToCart={this.state.addedToCart} />
+                        </div>
+                        <br />
+                        <Link to={'/cart'}><button>View Cart</button></Link>
 
                         <div className='product-description'>
                             <p>

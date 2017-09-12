@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import { slide as Menu } from 'react-burger-menu';
+import { Link } from 'react-router-dom';
 
 import axios from 'axios';
 import ScrollEvent from 'react-onscroll';
@@ -20,7 +21,7 @@ class Cart extends Component {
 
     componentDidMount() {
         axios.get('http://localhost:8001/viewCart').then( (results) => {
-            console.log(results.data);
+            // console.log(results.data);
             this.setState({
                 cart: results.data
             })
@@ -41,6 +42,15 @@ class Cart extends Component {
 
 
     render() {
+        let subtotal = function(array) {
+            let total = 0          
+            for (var i = 0; i < array.length; i++) {
+              total += array[i].productprice;
+            }
+            return total;
+          };
+        //   console.log( subtotal(this.state.cart) );
+
         return (
             <div>
                 <div hidden={this.state.scrolled}>
@@ -60,6 +70,8 @@ class Cart extends Component {
                     SEA 206 Clothing
                 </div>
 
+                <Link to='/market'><button className='return-to-store-button'>Return to store</button></Link>
+
                 <div>
                     {this.state.cart.map((product, index) => {
                         return (
@@ -77,6 +89,9 @@ class Cart extends Component {
                             </div>
                         )
                     })}
+                    <h1 className='total-price'>Subtotal: ${subtotal(this.state.cart)}.00 </h1>
+                    <br />
+                    <p className='shipping-taxes'>Shipping and taxes calculated at checkout</p>
                     <button className='checkout-button'>Checkout</button>
                 </div>
 

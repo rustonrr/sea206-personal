@@ -31,7 +31,8 @@
 
 .add-to-cart-button {
     margin-left: 25px;
-    margin-top: 15px;
+	margin-top: 15px;
+	margin-right: 10px;
 	-moz-box-shadow:inset 0px 1px 0px 0px #54a3f7;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #54a3f7;
 	box-shadow:inset 0px 1px 0px 0px #54a3f7;

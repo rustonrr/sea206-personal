@@ -10,7 +10,7 @@ module.exports = {
     viewCart: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
         // console.log(req.body);
-         dbInstance.get_cart(1) //the "1" here will be the unique userID
+         dbInstance.get_cart(2) //the "1" here will be the unique userID
           .then( products => res.status(200).send( products ) )
           .catch( () => res.status(500).send() );
     }

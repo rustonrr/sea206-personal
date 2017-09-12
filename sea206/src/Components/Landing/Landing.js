@@ -25,6 +25,7 @@ componentDidMount() {
             products: results.data
         })
     })
+    localStorage.setItem('userid','2');
 }
 
 handleScroll() {
