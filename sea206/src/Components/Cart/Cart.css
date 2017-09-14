@@ -82,6 +82,44 @@ hr {
 .cart-price-quantity {
     font-family: 'Open Sans';
 }
+.remove-from-cart {
+	margin-top: 10px;
+	-moz-box-shadow:inset 0px -3px 7px 0px #e6153f;
+	-webkit-box-shadow:inset 0px -3px 7px 0px #e6153f;
+	box-shadow:inset 0px -3px 7px 0px #e6153f;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #cf2138), color-stop(1, #d92745));
+	background:-moz-linear-gradient(top, #cf2138 5%, #d92745 100%);
+	background:-webkit-linear-gradient(top, #cf2138 5%, #d92745 100%);
+	background:-o-linear-gradient(top, #cf2138 5%, #d92745 100%);
+	background:-ms-linear-gradient(top, #cf2138 5%, #d92745 100%);
+	background:linear-gradient(to bottom, #cf2138 5%, #d92745 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#cf2138', endColorstr='#d92745',GradientType=0);
+	background-color:#cf2138;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:'Open Sans';
+	font-size:15px;
+	padding:6px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ed173b;
+}
+.remove-from-cart:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d92745), color-stop(1, #cf2138));
+	background:-moz-linear-gradient(top, #d92745 5%, #cf2138 100%);
+	background:-webkit-linear-gradient(top, #d92745 5%, #cf2138 100%);
+	background:-o-linear-gradient(top, #d92745 5%, #cf2138 100%);
+	background:-ms-linear-gradient(top, #d92745 5%, #cf2138 100%);
+	background:linear-gradient(to bottom, #d92745 5%, #cf2138 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d92745', endColorstr='#cf2138',GradientType=0);
+	background-color:#d92745;
+}
+.remove-from-cart:active {
+	position:relative;
+	top:1px;
+}
+
+
 
 .total-price {
     font-family: karla;

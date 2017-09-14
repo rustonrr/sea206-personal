@@ -79,6 +79,14 @@ handleScroll() {
             })}
         </div>
 
+        <div className='subscribe-discount-container'>
+            <h1 className='subscribe-info'>Subscribe to our Pre-order Notifications and Receive 15% off</h1>
+            <form className='email-subscribe'>
+                <input id="m" type="text" />
+                <button>Subscribe</button>
+            </form>
+        </div>
+
         <Footer />
         <ScrollEvent handleScrollCallback={this.handleScroll}/>
 

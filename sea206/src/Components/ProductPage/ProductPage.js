@@ -85,26 +85,6 @@ class ProductPage extends Component {
                 .then( (config) => config)
                 .catch( (err) => err);
         }
-
-        // axios.get('http://localhost:8001/nextID').then( (results) => {
-        //     let userid = localStorage.getItem('userid');
-        //     if(userid) {
-        //         console.log('userid exists')
-        //         let config = {
-        //             productid: this.state.product.productid,
-        //             productprice: this.state.product.price,
-        //             quantity: 1,
-        //             imgurl: this.state.product.imgurl
-        //             }
-        //             axios.post('http://localhost:8001/addToCart', config)
-        //             .then( (config) => config)
-        //             .catch( (err) => err);
-        //     } else {
-        //         localStorage.setItem('userid', results.data.max + 1);
-        //     }
-        //     console.log(userid);
-        //     console.log('max', results.data[0].max)
-        // })
     }
 
     render() {
@@ -141,11 +121,11 @@ class ProductPage extends Component {
                             <CartNotification addedToCart={this.state.addedToCart} />
                         </div>
                         <br />
-                        <Link to={'/cart'}><button>View Cart</button></Link>
+                        <Link to={'/cart'}><button className='view-cart'>View Cart</button></Link>
 
                         <div className='product-description'>
                             <p>
-                                On demand printed hoodies can take 3 - 5 days to be shipped.
+                                On demand printed garments can take 3 - 5 days to be shipped.
                                 <br />
                                 <br />
                                 This item is made in the USA out of California fleece which, opposed to 

@@ -1,0 +1,36 @@
+/* * {
+  border: 1px solid red !important;
+} */
+
+.total-price-container {
+    /* border: 1px solid black; */
+    width: 50%;
+    /* text-align: left; */
+    margin-left: 20%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Open Sans';
+}
+
+.price-categories {
+    text-align: left;
+}
+
+.price-values {
+    text-align: right;
+}
+
+.bottom-line-container {
+    padding: 20px;
+    text-align: center;
+}
+.bottom-line {
+    font-family: 'Open Sans';
+    font-size: 30px;
+}
+
+.checkout-component {
+    margin-left: 30%;
+    margin-bottom: 40px;
+}

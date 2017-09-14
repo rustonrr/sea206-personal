@@ -1,2 +1,3 @@
-select * from products
-limit 3;
+SELECT * FROM products
+ORDER BY RANDOM()
+LIMIT 3;

@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import { connect } from "react-redux";
-
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
-import { slide as Menu } from 'react-burger-menu';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import axios from 'axios';
+import Checkout from './Checkout/Checkout';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
+import {slide as Menu} from 'react-burger-menu';
 import ScrollEvent from 'react-onscroll';
-import './Cart.css';
 
-class Cart extends Component {
+import './ReviewOrder.css';
+
+class ReviewOrder extends Component {
     constructor() {
         super();
         this.state = {
@@ -19,7 +20,6 @@ class Cart extends Component {
             scrolled: false
         }
         this.handleScroll = this.handleScroll.bind(this);
-        this.removeFromCart = this.removeFromCart.bind(this);
     }
 
     componentDidMount() {
@@ -36,6 +36,7 @@ class Cart extends Component {
                 cart: results.data
             })
         })
+        console.log(this.state.cart)
     }
 
     handleScroll() {
@@ -50,33 +51,19 @@ class Cart extends Component {
         }
     }
 
-    removeFromCart(entryid) {
-        let newCart = this.state.cart;
-        for(let i = 0; i < newCart.length; i++) {
-            if(newCart[i].entryid === entryid) {
-                newCart.splice(i, 1)
-            }
-        }
-        this.setState({
-            cart: newCart
-        })
-
-        axios.delete('http://localhost:8001/removeFromCart', {
-            params: {entryid}
-        })
-    }
-
-
     render() {
-        let subtotal = function(array) {
+        let getSum = function(array) {
             let total = 0
             for (var i = 0; i < array.length; i++) {
               total += array[i].productprice;
             }
             return total;
-          };
-        //   console.log( subtotal(this.state.cart) );
-
+        };
+        let subtotal = getSum(this.state.cart);
+        let taxes = Math.floor( (getSum(this.state.cart) * .08) );
+        let total = (subtotal + taxes);
+        console.log('test', total)
+        
         return (
             <div>
                 <div hidden={this.state.scrolled}>
@@ -92,11 +79,12 @@ class Cart extends Component {
                     <Header/>
                 </div>
 
+
                 <div className='header-logo-market'>
                     SEA 206 Clothing
                 </div>
-
-                <Link to='/market'><button className='return-to-store-button'>Continue Shopping</button></Link>
+                
+                <Link to={"/Cart"}><button className='back-button'>Back</button></Link>
 
                 <div>
                     {this.state.cart.map((product, index) => {
@@ -106,25 +94,40 @@ class Cart extends Component {
                                     <img alt='cart-product' className='cart-image' src={product.imgurl} />
                                 </div>
                                 <div className='cart-description-container'>
-                                    {/* <h1 className='cart-productname'>{product.productname}</h1> */}
+                                    <h1 className='cart-productname'>{product.productname}</h1>
                                     <h1 className='cart-price-quantity'>Price: ${product.productprice}.00</h1>
                                     <br />
                                     <h1 className='cart-price-quantity'>Quantity: {product.quantity}</h1>
-                                    <button className='remove-from-cart' onClick={ () => this.removeFromCart(product.entryid) }>Remove</button>
                                 </div>
                                 <hr />
                             </div>
                         )
                     })}
-                    <h1 className='total-price'>Subtotal: ${subtotal(this.state.cart)}.00 </h1>
+                    <div className='total-price-container'>
+                        <div className='price-categories'>
+                            <h1>Subtotal:</h1>
+                            <h1>Taxes:</h1>
+                            <h1>Shipping:</h1>
+                        </div>
+                        <div className='price-values'>
+                            <h1>${subtotal}.00 </h1>
+                            <h1>${taxes}.00</h1>
+                            <h1>FREE</h1>
+                        </div>
+                    </div>
+                    <div className='bottom-line-container'>
+                        <h1 className='bottom-line'>Total: ${total}.00</h1>
+                    </div>
+
                     <br />
-                    <p className='shipping-taxes'>Shipping and taxes calculated at checkout</p>
-                    <Link to='./revieworder'><button className='checkout-button'>Review Order</button></Link>
                 </div>
+
+            <div className='checkout-component'>
+                <Checkout total={total} />
+            </div>
 
                 <Footer/>
                 <ScrollEvent handleScrollCallback={this.handleScroll}/>
-                
             </div>
         );
     }
@@ -132,8 +135,8 @@ class Cart extends Component {
 
 function mapStateToProps(state) {
     return {
-      text: state.subtotal
+        text: state.subtotal
     }
-  }
+}
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps)(ReviewOrder);

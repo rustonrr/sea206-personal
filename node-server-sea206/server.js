@@ -23,6 +23,8 @@ massive( process.env.CONNECTION_STRING ).then( (dbInstance) => {
     app.get('/viewCart', cart_controller.viewCart);
     
     app.get('/nextID', cart_controller.nextID)
+
+    app.delete('/removeFromCart', cart_controller.removeFromCart);
     
     const port = process.env.PORT || 8001;
     app.listen(port, () => {

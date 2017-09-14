@@ -6,7 +6,7 @@ module.exports = {
         
         dbInstance.add_to_cart([product.userid, product.productid, product.productprice, product.quantity, product.imgurl])
         .then( (product) => res.status(200).send(product) )
-        .catch( () => res.status(500).send( 'error' ) )
+        .catch( () => res.status(500).send( 'error' ) );
     },
     viewCart: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
@@ -16,9 +16,18 @@ module.exports = {
           .then( products => res.status(200).send( products ) )
           .catch( () => res.status(500).send() );
     },
+    removeFromCart: ( req, res, next ) => {
+        const dbInstance = req.app.get('db');
+        // console.log(req.query.entryid)
+
+        dbInstance.remove_from_cart([req.query.entryid])
+
+        .then( () => res.status(200).send() )
+        .catch( () => res.status(500).send('error while removing') );
+    },
     nextID: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
-        console.log(req.body)
+        // console.log(req.body)
         dbInstance.next_id()
         .then(userid => res.status(200).send( userid ) )
         .catch( () => res.status(500).send());
