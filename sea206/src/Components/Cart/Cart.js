@@ -101,7 +101,7 @@ class Cart extends Component {
                 <div>
                     {this.state.cart.map((product, index) => {
                         return (
-                            <div>
+                            <div key={index}>
                                 <div className='cart-product-container' key={index}>
                                     <div className='cart-image-container'>
                                         <a href={`/market/${product.productid}`}>

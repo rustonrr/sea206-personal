@@ -75,7 +75,6 @@ class ReviewOrder extends Component {
                     <Header/>
                 </div>
 
-
                 <div className='header-logo-market'>
                     SEA 206 Clothing
                 </div>

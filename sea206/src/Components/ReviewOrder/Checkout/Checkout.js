@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import axios from 'axios';
+
 import './Checkout.css';
 
 class Checkout extends Component {
@@ -9,6 +11,7 @@ class Checkout extends Component {
         this.state = {
           isLoading: false,
           stripeToken: null
+          // total: this.props.total
         }
     
         // configure Stripe Checkout
@@ -26,25 +29,28 @@ class Checkout extends Component {
         // We need to continue the payment process by sending this token to our own server.
         // More info: https://stripe.com/docs/charges
         this.setState({stripeToken: token})
-      }
+        axios.post('http://localhost:8001/api/payment', { token: token }).then(response => {
+          alert('Thanks so much for support your local artists!')
+      });
+    }
     
     onClickPay (e) {
         e.preventDefault()
         this.setState({isLoading: true});
 
-    const onCheckoutOpened = () => {
-        this.setState({isLoading: false})
-    }
+        const onCheckoutOpened = () => {
+            this.setState({isLoading: false})
+        }
 
     // open Stripe Checkout
-    let subtotal = (this.props.total * 100)
-    this.stripeHandler.open({
-        name: 'SEA206 Clothing',
-        // description: 'An awesome product',
-        amount: subtotal, // 10 USD -> 1000 cents
-        currency: 'usd',
-        opened: onCheckoutOpened.bind(this)
-    });
+        let subtotal = (this.props.total * 100)
+        this.stripeHandler.open({
+            name: 'SEA206 Clothing',
+            // description: 'An awesome product',
+            amount: subtotal, // 10 USD -> 1000 cents
+            currency: 'usd',
+            opened: onCheckoutOpened.bind(this)
+        });
     }
       
     render() {
@@ -63,7 +69,7 @@ class Checkout extends Component {
               {"Tap the button below to open Stripe's Checkout overlay."}
             </p>
             {this.state.stripeToken ? <p>{"Got Stripe token ID: " + this.state.stripeToken.id + ". Continue payment process in the server."}</p> : null}
-            <a className={buttonClassName} href="/" onClick={this.onClickPay.bind(this)}>{buttonText}</a>
+            <a className={buttonClassName} href="/cart" onClick={this.onClickPay.bind(this)}>{buttonText}</a>
           </div>
         );
       }
