@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
-
 import './Checkout.css';
 
 class Checkout extends Component {
@@ -30,7 +29,7 @@ class Checkout extends Component {
         // More info: https://stripe.com/docs/charges
         this.setState({stripeToken: token})
         axios.post('http://localhost:8001/api/payment', { token: token }).then(response => {
-          alert('Thanks so much for support your local artists!')
+          alert('Payment worked')
       });
     }
     
