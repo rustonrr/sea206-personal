@@ -13,6 +13,30 @@
     font-family: 'Open Sans';
 }
 
+
+.cart-productname {
+    font-family: 'Open Sans'
+}
+
+.order-image-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    font-family: karla;
+}
+.order-image {
+    height: 120px;
+    width: auto;
+    display: inline-block;
+    margin-left: 30vw;
+}
+.order-description-container {
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+
 .price-categories {
     text-align: left;
 }
@@ -33,4 +57,26 @@
 .checkout-component {
     margin-left: 30%;
     margin-bottom: 40px;
+}
+
+@media(min-width: 550px) {
+    .order-image {
+        margin-left: 5px;
+    }
+	.cart-product-container {
+		display: flex;
+	}
+	.order-description-container {
+        margin-top: 25px;
+        margin-left: 10px;
+	}
+	.order-image-container {
+		width: 30%;
+		/* height: auto; */
+		/* margin-top: 5%; */
+		display: inline-block;
+		align-items: center;
+		text-align: center;
+		font-family: karla;
+	}
 }

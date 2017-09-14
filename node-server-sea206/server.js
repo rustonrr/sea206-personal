@@ -21,6 +21,7 @@ massive( process.env.CONNECTION_STRING ).then( (dbInstance) => {
 
     app.post('/addToCart', cart_controller.addToCart);
     app.get('/viewCart', cart_controller.viewCart);
+    app.get('/reviewOrder', cart_controller.reviewOrder);
     
     app.get('/nextID', cart_controller.nextID)
 

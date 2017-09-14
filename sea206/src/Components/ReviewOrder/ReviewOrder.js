@@ -16,27 +16,23 @@ class ReviewOrder extends Component {
     constructor() {
         super();
         this.state = {
-            cart: [],
+            order: [],
             scrolled: false
         }
         this.handleScroll = this.handleScroll.bind(this);
     }
 
     componentDidMount() {
-        // let config = {
-        //     userid: localStorage.getItem('userid')
-        // }
-        // console.log(config);
-        axios.get('http://localhost:8001/viewCart', {
+        axios.get('http://localhost:8001/reviewOrder', {
             params: {userid: localStorage.getItem('userid')}
         })
             .then( (results) => {
             // console.log(results.data);
             this.setState({
-                cart: results.data
+                order: results.data
             })
         })
-        console.log(this.state.cart)
+        // console.log(this.state.cart)
     }
 
     handleScroll() {
@@ -59,10 +55,10 @@ class ReviewOrder extends Component {
             }
             return total;
         };
-        let subtotal = getSum(this.state.cart);
-        let taxes = Math.floor( (getSum(this.state.cart) * .08) );
+        let subtotal = getSum(this.state.order);
+        let taxes = Math.floor( (getSum(this.state.order) * .08) );
         let total = (subtotal + taxes);
-        console.log('test', total)
+        // console.log('test', total)
         
         return (
             <div>
@@ -87,22 +83,25 @@ class ReviewOrder extends Component {
                 <Link to={"/Cart"}><button className='back-button'>Back</button></Link>
 
                 <div>
-                    {this.state.cart.map((product, index) => {
-                        return (
-                            <div className='cart-product-container' key={index}>
-                                <div className='cart-image-container' >
-                                    <img alt='cart-product' className='cart-image' src={product.imgurl} />
+                    <div>
+                        {this.state.order.map((product, index) => {
+                            return (
+                                <div className='cart-product-container' key={index}>
+                                    <div className='order-image-container' >
+                                        <img alt='cart-product' className='order-image' src={product.imgurl} />
+                                    </div>
+                                    <div className='order-description-container'>
+                                        <h1 className='cart-productname'>{product.productname}</h1>
+                                        <br />
+                                        <h1 className='cart-price-quantity'>Price: ${product.productprice}.00</h1>
+                                        <br />
+                                        <h1 className='cart-price-quantity'>Quantity: {product.quantity}</h1>
+                                    </div>
                                 </div>
-                                <div className='cart-description-container'>
-                                    <h1 className='cart-productname'>{product.productname}</h1>
-                                    <h1 className='cart-price-quantity'>Price: ${product.productprice}.00</h1>
-                                    <br />
-                                    <h1 className='cart-price-quantity'>Quantity: {product.quantity}</h1>
-                                </div>
-                                <hr />
-                            </div>
-                        )
-                    })}
+                            )
+                        })}
+                                    <hr />
+                    </div>
                     <div className='total-price-container'>
                         <div className='price-categories'>
                             <h1>Subtotal:</h1>

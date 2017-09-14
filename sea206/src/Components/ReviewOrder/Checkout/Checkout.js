@@ -48,7 +48,7 @@ class Checkout extends Component {
     }
       
     render() {
-        console.log(this.props.total);
+        // console.log(this.props.total);
         let buttonText = this.state.isLoading ? "Please wait ..." : "Pay $" + this.props.total + ".00";
         let buttonClassName = "Pay-Now" + (this.state.isLoading ? " Pay-Now-Disabled" : "")
         if (this.state.stripeToken) {
@@ -60,10 +60,10 @@ class Checkout extends Component {
           <div>
 
             <p>
-              {"Tap the button below to open Stripe's Checkout overlay. Replace <YOUR_STRIPE_PUBLISHABLE_KEY> in App.js with your own key."}
+              {"Tap the button below to open Stripe's Checkout overlay."}
             </p>
             {this.state.stripeToken ? <p>{"Got Stripe token ID: " + this.state.stripeToken.id + ". Continue payment process in the server."}</p> : null}
-            <a className={buttonClassName} href="#" onClick={this.onClickPay.bind(this)}>{buttonText}</a>
+            <a className={buttonClassName} href="/" onClick={this.onClickPay.bind(this)}>{buttonText}</a>
           </div>
         );
       }

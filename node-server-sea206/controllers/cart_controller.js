@@ -31,5 +31,14 @@ module.exports = {
         dbInstance.next_id()
         .then(userid => res.status(200).send( userid ) )
         .catch( () => res.status(500).send());
-    }
+    },
+    reviewOrder: ( req, res, next ) => {
+        const dbInstance = req.app.get('db');
+        let userid = req.query.userid;
+
+         dbInstance.review_order([userid])
+          .then( products => res.status(200).send( products ) )
+          .catch( () => res.status(500).send() );
+    },
+    
 };

@@ -101,16 +101,20 @@ class Cart extends Component {
                 <div>
                     {this.state.cart.map((product, index) => {
                         return (
-                            <div className='cart-product-container' key={index}>
-                                <div className='cart-image-container' >
-                                    <img alt='cart-product' className='cart-image' src={product.imgurl} />
-                                </div>
-                                <div className='cart-description-container'>
-                                    {/* <h1 className='cart-productname'>{product.productname}</h1> */}
-                                    <h1 className='cart-price-quantity'>Price: ${product.productprice}.00</h1>
-                                    <br />
-                                    <h1 className='cart-price-quantity'>Quantity: {product.quantity}</h1>
-                                    <button className='remove-from-cart' onClick={ () => this.removeFromCart(product.entryid) }>Remove</button>
+                            <div>
+                                <div className='cart-product-container' key={index}>
+                                    <div className='cart-image-container'>
+                                        <a href={`/market/${product.productid}`}>
+                                            <img alt='cart-product' className='cart-image' src={product.imgurl} />
+                                        </a>
+                                    </div>
+                                    <div className='cart-description-container'>
+                                        {/* <h1 className='cart-productname'>{product.productname}</h1> */}
+                                        <h1 className='cart-price-quantity'>Price: ${product.productprice}.00</h1>
+                                        <br />
+                                        <h1 className='cart-price-quantity'>Quantity: {product.quantity}</h1>
+                                        <button className='remove-from-cart' onClick={ () => this.removeFromCart(product.entryid) }>Remove</button>
+                                    </div>
                                 </div>
                                 <hr />
                             </div>
@@ -119,7 +123,9 @@ class Cart extends Component {
                     <h1 className='total-price'>Subtotal: ${subtotal(this.state.cart)}.00 </h1>
                     <br />
                     <p className='shipping-taxes'>Shipping and taxes calculated at checkout</p>
-                    <Link to='./revieworder'><button className='checkout-button'>Review Order</button></Link>
+                    <div className='review-order-button-container'>
+                        <Link to='./revieworder'><button className='review-order-button'>Review Order</button></Link>
+                    </div>
                 </div>
 
                 <Footer/>
