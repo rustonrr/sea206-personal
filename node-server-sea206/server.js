@@ -32,24 +32,26 @@ massive( process.env.CONNECTION_STRING ).then( (dbInstance) => {
 
 
     app.post('/api/payment', function(req, res, next){
-
-        // console.log(req.body.token.id);
+        // console.log(req.body);
+        let total = req.body.total * 100
 
         stripe.charges.create({
-        amount: 593, // amount in cents, again
+        amount: total, // amount in cents, again
         currency: 'usd',
         source: req.body.token.id,
-        description: 'Test charge from react app'
+        description: 'SEA 206 product purchase' // make this a custom description based on product
       }, function(err, charge) {
           if(err){
-            console.log(err);
+            // console.log(err);
             return res.sendStatus(500);
           } else {
-              console.log(charge);
+            //   console.log(charge);
               return res.sendStatus(200);
           }
         });
     });
+
+    app.delete('/ordercomplete', cart_controller.orderComplete);
     
 
 

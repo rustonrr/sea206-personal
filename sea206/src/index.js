@@ -8,6 +8,7 @@ import Contact from './Components/Contact/Contact';
 import ProductPage from './Components/ProductPage/ProductPage';
 import Cart from './Components/Cart/Cart';
 import ReviewOrder from './Components/ReviewOrder/ReviewOrder';
+import ThankYou from './Components/ThankYou/ThankYou';
 
 import { Provider } from 'react-redux';
 import store from './redux/store';
@@ -28,6 +29,7 @@ ReactDOM.render(
                     <Route path='/contact' component={Contact} />
                     <Route path='/cart' component={Cart} />
                     <Route path='/revieworder' component={ReviewOrder} />
+                    <Route path='/thankyou' component={ThankYou} />
                 </Switch>
             </div>
         </BrowserRouter>

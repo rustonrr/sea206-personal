@@ -4,14 +4,15 @@ import axios from 'axios';
 import './Checkout.css';
 
 class Checkout extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
     
         this.state = {
-          isLoading: false,
-          stripeToken: null
-          // total: this.props.total
+          stripeToken: null,
+          fireRedirect: false,
+          total: this.props.total
         }
+        this.onClickPay = this.onClickPay.bind(this);
     
         // configure Stripe Checkout
         this.stripeHandler = window.StripeCheckout.configure({
@@ -24,51 +25,37 @@ class Checkout extends Component {
     
 
     onGetStripeToken (token) {
+        let userid = localStorage.getItem('userid');
+        // console.log(userid);
         // Got Stripe token. This means user's card is valid!
-        // We need to continue the payment process by sending this token to our own server.
-        // More info: https://stripe.com/docs/charges
         this.setState({stripeToken: token})
-        axios.post('http://localhost:8001/api/payment', { token: token }).then(response => {
-          alert('Payment worked')
+        axios.post('http://localhost:8001/api/payment', { token: token, total: this.props.total }).then(response => {
+          window.location.href="/thankyou";
+          axios.delete('http://localhost:8001/ordercomplete', { params: {userid} })
       });
     }
-    
+
     onClickPay (e) {
         e.preventDefault()
-        this.setState({isLoading: true});
-
-        const onCheckoutOpened = () => {
-            this.setState({isLoading: false})
-        }
+        this.setState({ fireRedirect: true })
 
     // open Stripe Checkout
         let subtotal = (this.props.total * 100)
+        console.log('subtotal', subtotal)
         this.stripeHandler.open({
             name: 'SEA206 Clothing',
-            // description: 'An awesome product',
             amount: subtotal, // 10 USD -> 1000 cents
-            currency: 'usd',
-            opened: onCheckoutOpened.bind(this)
+            currency: 'usd'
         });
     }
       
     render() {
-        // console.log(this.props.total);
-        let buttonText = this.state.isLoading ? "Please wait ..." : "Pay $" + this.props.total + ".00";
-        let buttonClassName = "Pay-Now" + (this.state.isLoading ? " Pay-Now-Disabled" : "")
-        if (this.state.stripeToken) {
-          buttonText = "Processing your payment ..."
-          buttonClassName = "Pay-Now Pay-Now-Disabled"
-        }
-
+      console.log('state', this.state.total);
+      console.log('props', this.props.total);
         return (
-          <div>
-
-            <p>
-              {"Tap the button below to open Stripe's Checkout overlay."}
-            </p>
-            {this.state.stripeToken ? <p>{"Got Stripe token ID: " + this.state.stripeToken.id + ". Continue payment process in the server."}</p> : null}
-            <a className={buttonClassName} href="/cart" onClick={this.onClickPay.bind(this)}>{buttonText}</a>
+          <div className='checkout-container'>
+          
+            <a className='Pay-Now' href="http://localhost:3000/" onClick={this.onClickPay}>Pay ${this.props.total}.00</a>
           </div>
         );
       }

@@ -52,6 +52,13 @@ hr {
 	top:1px;
 }
 
+.cart-header {
+	font-family: karla;
+	margin-left: 10%;
+	margin-top: 10px;
+	font-size: 20px;
+}
+
 
 .cart-image-container {
     margin-top: 30px;

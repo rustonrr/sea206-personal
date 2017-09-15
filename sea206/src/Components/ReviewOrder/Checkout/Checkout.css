@@ -1,11 +1,14 @@
-
+.checkout-container {
+  text-align: center;
+  width: 100%;
+}
 .Pay-Now {
     color: white;
     padding: 20px;
     background-color: orangered;
     border-radius: 8px;
     text-decoration: none;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     display: inline-block;
     font-family: 'Open Sans';
   }

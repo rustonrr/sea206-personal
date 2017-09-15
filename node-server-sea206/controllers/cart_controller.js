@@ -40,5 +40,12 @@ module.exports = {
           .then( products => res.status(200).send( products ) )
           .catch( () => res.status(500).send() );
     },
-    
+    orderComplete: ( req, res, next ) => {
+        const dbInstance = req.app.get('db');
+        let userid = req.query.userid;
+
+        dbInstance.order_complete([userid])
+        .then( products => res.status(200).send( products ) )
+        .catch( () => res.status(500).send() );
+    }
 };

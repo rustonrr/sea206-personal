@@ -98,6 +98,10 @@ class Cart extends Component {
 
                 <Link to='/market'><button className='return-to-store-button'>Continue Shopping</button></Link>
 
+                <div className='cart-header'>
+                    Cart
+                </div>
+
                 <div>
                     {this.state.cart.map((product, index) => {
                         return (

@@ -99,7 +99,7 @@ class ReviewOrder extends Component {
                                 </div>
                             )
                         })}
-                                    <hr />
+                    <hr />
                     </div>
                     <div className='total-price-container'>
                         <div className='price-categories'>
