@@ -31,6 +31,7 @@ class Checkout extends Component {
         this.setState({stripeToken: token})
         axios.post('http://localhost:8001/api/payment', { token: token, total: this.props.total }).then(response => {
           window.location.href="/thankyou";
+          // axios.post('http://localhost:8001/submitorder') //this is to add to orders table
           axios.delete('http://localhost:8001/ordercomplete', { params: {userid} })
       });
     }

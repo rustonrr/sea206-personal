@@ -99,7 +99,7 @@ class Cart extends Component {
                 <Link to='/market'><button className='return-to-store-button'>Continue Shopping</button></Link>
 
                 <div className='cart-header'>
-                    Cart
+                    Your Shopping Cart
                 </div>
 
                 <div>

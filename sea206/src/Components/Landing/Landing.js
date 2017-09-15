@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import { slide as Menu } from 'react-burger-menu';
-
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ScrollEvent from 'react-onscroll';
 import './Landing.css';
@@ -48,8 +48,10 @@ handleScroll() {
           <Menu hidden={this.state.scrolled} width={ 200 } >
             <a id="home" className="menu-item" href="/">Home</a>
             <a id="about" className="menu-item" href="/market">Shop</a>
-            <a id="contact" className="menu-item" href="/about">About</a>
+            <a id="about" className="menu-item" href="/about">About</a>
             <a id="contact" className="menu-item" href="/contact">Contact</a>
+            <br />
+            <Link to='/cart'><img className='burger-cart' alt='cart' src='https://image.flaticon.com/icons/svg/2/2772.svg' /></Link>
           </Menu>
         </div>
 

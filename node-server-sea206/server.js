@@ -52,6 +52,8 @@ massive( process.env.CONNECTION_STRING ).then( (dbInstance) => {
     });
 
     app.delete('/ordercomplete', cart_controller.orderComplete);
+    app.post('/submitReview', products_controller.submitReview);
+    app.get('/getReviews/:productid', products_controller.getReviews);
     
 
 

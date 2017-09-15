@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Header.css';
 
+import { Link } from 'react-router-dom';
 import ScrollEvent from 'react-onscroll';
 import ScrollToTop from 'react-scroll-up';
 
@@ -40,6 +41,7 @@ class Header extends Component {
                     <a href="/market">Shop</a>
                     <a href="/about">About</a>
                     <a href="/contact">Contact</a>
+                    {/* <Link to='/cart'><img src='https://image.flaticon.com/icons/svg/2/2772.svg' /></Link> */}
                 </div>
 
                 <ScrollToTop showUnder={160}>

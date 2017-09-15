@@ -29,5 +29,20 @@ module.exports = {
       .catch( err => { 
         res.status(500).send(err);
       });
+    },
+    submitReview: ( req, res, next ) => {
+      const dbInstance = req.app.get('db');
+      let product = req.body
+
+      dbInstance.submit_review([product.userid, product.productid, product.reviewtext])
+      .then( (review) => res.status(200).send(review) )
+      .catch( () => res.status(500).send( 'error' ) );
+    },
+    getReviews: (req, res, next ) => {
+      const dbInstance = req.app.get('db');
+      
+      dbInstance.get_reviews([req.params.productid])
+        .then(products => { res.status(200).send(products); })
+        .catch( err => {res.status(500).send(err);});
     }
   };

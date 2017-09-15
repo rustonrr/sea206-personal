@@ -1,7 +1,6 @@
 /* * {
-  border: 1px solid red !important;
-} */
-
+	border: 1px solid red !important;
+  } */
 
 
 .product-image-container {
@@ -107,48 +106,10 @@
 	top:1px;
 }
 
-/* .view-cart {
-	margin-left: 25px;
-	margin-top: 15px;
-	margin-right: 10px;
-	-moz-box-shadow:inset 0px -3px 7px 0px #3dc21b;
-	-webkit-box-shadow:inset 0px -3px 7px 0px #3dc21b;
-	box-shadow:inset 0px -3px 7px 0px #3dc21b;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #44c767), color-stop(1, #5cbf2a));
-	background:-moz-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
-	background:-webkit-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
-	background:-o-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
-	background:-ms-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
-	background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#44c767', endColorstr='#5cbf2a',GradientType=0);
-	background-color:#44c767;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:'Open Sans';
-	font-size:13px;
-	padding:9px 23px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #2f6627;
-}
-.view-cart:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5cbf2a), color-stop(1, #44c767));
-	background:-moz-linear-gradient(top, #5cbf2a 5%, #44c767 100%);
-	background:-webkit-linear-gradient(top, #5cbf2a 5%, #44c767 100%);
-	background:-o-linear-gradient(top, #5cbf2a 5%, #44c767 100%);
-	background:-ms-linear-gradient(top, #5cbf2a 5%, #44c767 100%);
-	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cbf2a', endColorstr='#44c767',GradientType=0);
-	background-color:#5cbf2a;
-}
-.view-cart:active {
-	position:relative;
-	top:1px;
-} */
-
 .product-description {
     width: 90%;
-    margin-left: 25px;
+	margin-left: 25px;
+	margin-right: 25px;
     margin-top: 15px;
     font-family: 'Open Sans';
     font-size: 15px;
@@ -157,6 +118,95 @@
 .product-description li {
     list-style-type: disc;
     list-style-position: inside;
+}
+
+.product-review-container {
+	margin-top: 30px;
+	border: 1px solid #ccc;
+}
+
+.product-review {
+	padding-left: 5%;
+	padding-top: 3%;
+	font-family: karla;
+
+}
+.review-header {
+	font-size: 25px;
+	padding-bottom: 10px;
+}
+
+.submit-form {
+	font-family: karla;
+}
+.submit-form h1 {
+	margin-bottom: 6px;
+}
+.submit-form label {
+	width: 100%;
+}
+.submit-form textarea {
+	width: 70%;
+	height: 45px;
+}
+
+.review-submit-button {
+	margin-top: 5px;
+	margin-right: 10px;
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9));
+	background:-moz-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+	background:-webkit-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+	background:-o-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+	background:-ms-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+	background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9',GradientType=0);
+	background-color:#f9f9f9;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+/* .review-submit-button:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9));
+	background:-moz-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+	background:-webkit-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+	background:-o-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+	background:-ms-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+	background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9',GradientType=0);
+	background-color:#e9e9e9;
+} */
+.review-submit-button:active {
+	position:relative;
+	top:1px;
+}
+
+
+.review-text-container {
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+}
+.review {
+	/* border: 1px solid black; */
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .size-chart {

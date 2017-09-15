@@ -1,0 +1,10 @@
+h7 {
+    transition: 300ms all ease;
+    opacity: 0;
+    will-change: opacity;
+    font-family: 'Open Sans';
+}
+  
+.show {
+   opacity: 1;
+  }

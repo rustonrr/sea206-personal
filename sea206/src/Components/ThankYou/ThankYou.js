@@ -49,7 +49,11 @@ class ThankYou extends Component {
 
                 <div className='thank-you-container'>
                     Thanks for the order!
+                    <div className='thank-you-image'>
+                        <img src='https://scontent-sjc2-1.xx.fbcdn.net/v/t1.0-9/1531549_743615879048654_3365429657988178836_n.jpg?oh=e65f211beb47dc62c3ed60754fcc8df3&oe=5A5E7C9B' />
+                    </div>
                 </div>
+
 
                 <Footer/>
                 <ScrollEvent handleScrollCallback={this.handleScroll}/>

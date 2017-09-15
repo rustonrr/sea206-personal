@@ -68,6 +68,8 @@ class ReviewOrder extends Component {
                         <a id="about" className="menu-item" href="/Market">Shop</a>
                         <a id="contact" className="menu-item" href="/about">About</a>
                         <a id="contact" className="menu-item" href="/contact">Contact</a>
+                        <br />
+                        <Link to='/cart'><img className='burger-cart' alt='cart' src='https://image.flaticon.com/icons/svg/2/2772.svg' /></Link>
                     </Menu>
                 </div>
 
