@@ -19,7 +19,7 @@ class Landing extends Component {
 }
 
 componentDidMount() {
-    axios.get('http://localhost:8001/sampleproducts').then( (results) => {
+    axios.get(process.env.API_URL + '/sampleproducts').then( (results) => {
         // console.log(results.data);
         this.setState({
             products: results.data

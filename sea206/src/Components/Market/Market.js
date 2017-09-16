@@ -20,7 +20,7 @@ class Market extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8001/products').then( (results) => {
+        axios.get(process.env.API_URL + '/products').then( (results) => {
             // console.log(results.data);
             this.setState({
                 products: results.data
@@ -60,6 +60,7 @@ class Market extends Component {
                 </div>
                 <div className='header-logo-market'>
                     SEA 206 Clothing
+                    {/* <Link className='market-cart-button-container' to='/cart'><img className='market-cart-button' src='https://image.flaticon.com/icons/svg/2/2772.svg' /></Link> */}
                 </div>
 
                 <div className='store-main'>

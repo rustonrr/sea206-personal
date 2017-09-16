@@ -29,17 +29,17 @@ class ProductPage extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:8001/product/${this.props.match.params.productID}`).then( (results) => {
+        axios.get(process.env.API_URL + `/product/${this.props.match.params.productID}`).then( (results) => {
         // console.log(results.data);
             this.setState({
                 product: results.data
             })
         })
-        axios.get(`http://localhost:8001/getReviews/${this.props.match.params.productID}`).then( (results) => {
+        axios.get(process.env.API_URL + `/getReviews/${this.props.match.params.productID}`).then( (results) => {
             this.setState({
                 reviews: results.data
             })
-            console.log(this.state.reviews)
+            // console.log(this.state.reviews)
         })
 
     }
@@ -68,12 +68,12 @@ class ProductPage extends Component {
 
         let userid = localStorage.getItem('userid');
         if(!userid) {
-            axios.get('http://localhost:8001/nextID').then( (results) => {
+            axios.get(process.env.API_URL +  '/nextID').then( (results) => {
                 let userid = results.data[0].max + 1
 
                 localStorage.setItem('userid', userid);
 
-                console.log(userid);
+                // console.log(userid);
                 
                 let config = {
                     userid: localStorage.getItem('userid'),
@@ -82,7 +82,7 @@ class ProductPage extends Component {
                     quantity: 1,
                     imgurl: this.state.product.imgurl
                     }
-                    axios.post('http://localhost:8001/addToCart', config)
+                    axios.post(process.env.API_URL + '/addToCart', config)
                     .then( (config) => config)
                     .catch( (err) => err);
             })
@@ -94,7 +94,7 @@ class ProductPage extends Component {
                 quantity: 1,
                 imgurl: this.state.product.imgurl
                 }
-                axios.post('http://localhost:8001/addToCart', config)
+                axios.post(process.env.API_URL + '/addToCart', config)
                 .then( (config) => config)
                 .catch( (err) => err);
         }
@@ -102,7 +102,7 @@ class ProductPage extends Component {
 
     handleChange(event) {
         this.setState({reviewText: event.target.value});
-        console.log(this.state.reviewText)
+        // console.log(this.state.reviewText)
       }
 
     handleSubmit(event) {
@@ -114,15 +114,15 @@ class ProductPage extends Component {
                 productid: this.state.product.productid,
                 reviewtext: this.state.reviewText
                 }
-            console.log('A review was submitted: ' + this.state.reviewText);
+            // console.log('A review was submitted: ' + this.state.reviewText);
             event.preventDefault();
-            axios.post('http://localhost:8001/submitReview', config);
-            axios.get(`http://localhost:8001/getReviews/${this.props.match.params.productID}`).then( (results) => {
+            axios.post(process.env.API_URL + '/submitReview', config);
+            axios.get(process.env.API_URL + `/getReviews/${this.props.match.params.productID}`).then( (results) => {
                 this.setState({
                     reviews: results.data,
                     submittedReview: true
                 })
-                console.log(this.state.reviews)
+                // console.log(this.state.reviews)
             });
         }
     }

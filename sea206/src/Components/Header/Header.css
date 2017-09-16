@@ -23,6 +23,7 @@
     padding-left: 5px;
     text-decoration: none;
     font-family: karla;
+    font-size: 18px;
 
     transition: background .25s ease-in-out;
     -moz-transition: background .25s ease-in-out;

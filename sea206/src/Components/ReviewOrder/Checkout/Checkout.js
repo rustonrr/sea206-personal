@@ -29,10 +29,9 @@ class Checkout extends Component {
         // console.log(userid);
         // Got Stripe token. This means user's card is valid!
         this.setState({stripeToken: token})
-        axios.post('http://localhost:8001/api/payment', { token: token, total: this.props.total }).then(response => {
+        axios.post(process.env.API_URL + '/api/payment', { token: token, total: this.props.total }).then(response => {
           window.location.href="/thankyou";
-          // axios.post('http://localhost:8001/submitorder') //this is to add to orders table
-          axios.delete('http://localhost:8001/ordercomplete', { params: {userid} })
+          axios.delete(process.env.API_URL + '/ordercomplete', { params: {userid} })
       });
     }
 
