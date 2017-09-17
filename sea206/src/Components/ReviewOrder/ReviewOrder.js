@@ -23,7 +23,7 @@ class ReviewOrder extends Component {
     }
 
     componentDidMount() {
-        axios.get(process.env.API_URL + '/reviewOrder', {
+        axios.get(process.env.REACT_APP_API_URL + '/reviewOrder', {
             params: {userid: localStorage.getItem('userid')}
         })
             .then( (results) => {

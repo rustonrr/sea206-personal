@@ -20,7 +20,7 @@ class Market extends Component {
     }
 
     componentDidMount() {
-        axios.get(process.env.API_URL + '/products').then( (results) => {
+        axios.get(process.env.REACT_APP_API_URL + '/products').then( (results) => {
             // console.log(results.data);
             this.setState({
                 products: results.data

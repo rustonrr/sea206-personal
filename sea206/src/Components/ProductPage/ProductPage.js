@@ -29,13 +29,13 @@ class ProductPage extends Component {
     }
 
     componentDidMount() {
-        axios.get(process.env.API_URL + `/product/${this.props.match.params.productID}`).then( (results) => {
+        axios.get(process.env.REACT_APP_API_URL + `/product/${this.props.match.params.productID}`).then( (results) => {
         // console.log(results.data);
             this.setState({
                 product: results.data
             })
         })
-        axios.get(process.env.API_URL + `/getReviews/${this.props.match.params.productID}`).then( (results) => {
+        axios.get(process.env.REACT_APP_API_URL + `/getReviews/${this.props.match.params.productID}`).then( (results) => {
             this.setState({
                 reviews: results.data
             })
@@ -68,7 +68,7 @@ class ProductPage extends Component {
 
         let userid = localStorage.getItem('userid');
         if(!userid) {
-            axios.get(process.env.API_URL +  '/nextID').then( (results) => {
+            axios.get(process.env.REACT_APP_API_URL +  '/nextID').then( (results) => {
                 let userid = results.data[0].max + 1
 
                 localStorage.setItem('userid', userid);
@@ -82,7 +82,7 @@ class ProductPage extends Component {
                     quantity: 1,
                     imgurl: this.state.product.imgurl
                     }
-                    axios.post(process.env.API_URL + '/addToCart', config)
+                    axios.post(process.env.REACT_APP_API_URL + '/addToCart', config)
                     .then( (config) => config)
                     .catch( (err) => err);
             })
@@ -94,7 +94,7 @@ class ProductPage extends Component {
                 quantity: 1,
                 imgurl: this.state.product.imgurl
                 }
-                axios.post(process.env.API_URL + '/addToCart', config)
+                axios.post(process.env.REACT_APP_API_URL + '/addToCart', config)
                 .then( (config) => config)
                 .catch( (err) => err);
         }
@@ -116,8 +116,8 @@ class ProductPage extends Component {
                 }
             // console.log('A review was submitted: ' + this.state.reviewText);
             event.preventDefault();
-            axios.post(process.env.API_URL + '/submitReview', config);
-            axios.get(process.env.API_URL + `/getReviews/${this.props.match.params.productID}`).then( (results) => {
+            axios.post(process.env.REACT_APP_API_URL + '/submitReview', config);
+            axios.get(process.env.REACT_APP_API_URL + `/getReviews/${this.props.match.params.productID}`).then( (results) => {
                 this.setState({
                     reviews: results.data,
                     submittedReview: true

@@ -27,7 +27,7 @@ class Cart extends Component {
         //     userid: localStorage.getItem('userid')
         // }
         // console.log(config);
-        axios.get(process.env.API_URL + '/viewCart', {
+        axios.get(process.env.REACT_APP_API_URL + '/viewCart', {
             params: {userid: localStorage.getItem('userid')}
         })
             .then( (results) => {
@@ -61,7 +61,7 @@ class Cart extends Component {
             cart: newCart
         })
 
-        axios.delete(process.env.API_URL + '/removeFromCart', {
+        axios.delete(process.env.REACT_APP_API_URL + '/removeFromCart', {
             params: {entryid}
         })
     }

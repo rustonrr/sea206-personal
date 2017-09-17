@@ -19,7 +19,8 @@ class Landing extends Component {
 }
 
 componentDidMount() {
-    axios.get(process.env.API_URL + '/sampleproducts').then( (results) => {
+    // console.log(process.env)
+    axios.get(process.env.REACT_APP_API_URL + '/sampleproducts').then( (results) => {
         // console.log(results.data);
         this.setState({
             products: results.data
