@@ -17,11 +17,13 @@ class Market extends Component {
             scrolled: false
         }
         this.handleScroll = this.handleScroll.bind(this);
+        this.handleMouseEnter = this.handleMouseEnter.bind(this);
+        this.handleMouseLeave = this.handleMouseLeave.bind(this);
     }
 
     componentDidMount() {
         axios.get(process.env.REACT_APP_API_URL + '/products').then( (results) => {
-            // console.log(results.data);
+            console.log(results.data)
             this.setState({
                 products: results.data
             })
@@ -38,6 +40,22 @@ class Market extends Component {
                 scrolled: false
             })
         }
+    }
+
+    handleMouseEnter(product, id) {
+        product.hovered = true;
+        // console.log(product.hovered)
+        this.setState({
+            hovered: true
+        })
+    }
+
+    handleMouseLeave(product, id) {
+        product.hovered = false;
+        // console.log(product.hovered)
+        this.setState({
+            hovered: false
+        })
     }
 
     render() {
@@ -60,7 +78,6 @@ class Market extends Component {
                 </div>
                 <div className='header-logo-market'>
                     SEA 206 Clothing
-                    {/* <Link className='market-cart-button-container' to='/cart'><img className='market-cart-button' src='https://image.flaticon.com/icons/svg/2/2772.svg' /></Link> */}
                 </div>
 
                 <div className='store-main'>
@@ -68,9 +85,17 @@ class Market extends Component {
                         {this.state.products.map((product, index) => {
                             return (
                                 <div className='product-list' key={index}>
-                                    <a href={`/market/${product.productid}`}>
-                                        <img alt='product' className='product-image' src={product.imgurl} />
+                                    <a className='hover-link' href={`/market/${product.productid}`}>
+                                        <img alt='product' 
+                                            className='product-image' src={product.imgurl} 
+                                            onMouseEnter={() => {this.handleMouseEnter(product, index)} } 
+                                            onMouseLeave={() => {this.handleMouseLeave(product, index)} }  />
+                                    <div className='hover-text' hidden={!product.hovered} >
+                                        <h1 className='hover-title'>{product.productname}</h1>
+                                        <h2 className='hover-price'>${product.price}.00 </h2>
+                                    </div>
                                     </a>
+                                    
                                 </div>
                             )
                         })}

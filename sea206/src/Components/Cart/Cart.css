@@ -78,7 +78,7 @@ hr {
     display: inline-block;
 }
 .cart-image:hover {
-	opacity: 0.8;
+	opacity: 0.5;
 }
 
 .cart-description-container {

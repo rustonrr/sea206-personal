@@ -96,10 +96,34 @@ table {
 	margin-right: 15px;
 	margin-bottom: 20px;
 	margin-left: 10px;
+	display: flex;
+	/* position: relative; */
+	justify-content: center;
 }
-/* .product-list:hover {
-	border: 1px solid black;
-} */
+
+.hover-link {
+	text-decoration: none;
+}
+
+.hover-text {
+	/* position: absolute; */
+	margin-top: -150px;
+	text-align: center;
+	color: black;
+}
+.hover-title {
+	font-family: karla;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.hover-price {
+	font-family: 'Open Sans';
+	font-size: 15px;
+	font-style: italic;
+	padding-top: 5px;
+	text-decoration: none;
+}
 
 .product-image {
 	height: 240px;
@@ -110,7 +134,7 @@ table {
 	-webkit-transition: opacity .25s ease-in-out;
 }
 .product-image:hover {
-	opacity: 0.3;
+	opacity: 0.1;
 }
 
 /* .landing-middle {
