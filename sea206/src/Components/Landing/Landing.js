@@ -40,6 +40,22 @@ handleScroll() {
     }
 }
 
+handleMouseEnter(product, id) {
+    product.hovered = true;
+    // console.log(product.hovered)
+    this.setState({
+        hovered: true
+    })
+}
+
+handleMouseLeave(product, id) {
+    product.hovered = false;
+    // console.log(product.hovered)
+    this.setState({
+        hovered: false
+    })
+}
+
 
   render() {
     return (
@@ -74,8 +90,15 @@ handleScroll() {
             {this.state.products.map((product, index) => {
                 return (
                     <div className='sample-product-list' key={index}>
-                        <a href={`/market/${product.productid}`}>
-                            <img alt='product' className='product-image' src={product.imgurl} />
+                        <a className='hover-link' href={`/market/${product.productid}`}>
+                            <img alt='product' 
+                                className='product-image' src={product.imgurl}  
+                                onMouseEnter={() => {this.handleMouseEnter(product, index)} } 
+                                onMouseLeave={() => {this.handleMouseLeave(product, index)} } />
+                            <div className='hover-text' hidden={!product.hovered} >
+                                <h1 className='hover-title'>{product.productname}</h1>
+                                <h2 className='hover-price'>${product.price}.00 </h2>
+                            </div>
                         </a>
                     </div>
                 )
