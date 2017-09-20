@@ -25,6 +25,9 @@ class Footer extends Component {
                 </div>
                 <div className='copyright'>
                     © 2017, SEA 206 Clothing.
+                    <br />
+                    <br />
+                    <i>This website was created for a school project by Ruston Reformado. To purchase these products, please go to www.sea206.com.</i>
                 </div>
             </div>
         );

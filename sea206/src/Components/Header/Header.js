@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Header.css';
 
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ScrollEvent from 'react-onscroll';
 import ScrollToTop from 'react-scroll-up';
 
@@ -26,12 +26,7 @@ class Header extends Component {
             })
         }
     }
-    // handleScrollToTop() {
-    //     this.setState({
-    //         notScrolled: true
-    //     })
-    //     console.log('scrolled back to top', this.state.notScrolled)
-    // }
+
 
     render() {
         return (
@@ -45,7 +40,12 @@ class Header extends Component {
                 </div>
 
                 <ScrollToTop showUnder={160}>
-                    <img alt='scroll to top' className='scroll-to-top' src='http://freevector.co/wp-content/uploads/2011/07/25366-arrow-up-on-a-black-circle-background1.png' />
+                    <div className='scroll-to-top-container'>
+                        <div className='market-cart-button-container'>
+                            <Link className='market-cart-button-link' to='/cart'><img className='market-cart-button' alt='cart' src='https://image.flaticon.com/icons/svg/2/2772.svg' /></Link>
+                        </div>
+                        <img alt='scroll to top' className='scroll-to-top' src='http://freevector.co/wp-content/uploads/2011/07/25366-arrow-up-on-a-black-circle-background1.png' />
+                    </div>
                 </ScrollToTop>
 
                 <ScrollEvent handleScrollCallback={this.handleScroll}/>

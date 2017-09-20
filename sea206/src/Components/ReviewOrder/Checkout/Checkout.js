@@ -32,7 +32,7 @@ class Checkout extends Component {
         axios.post(process.env.REACT_APP_API_URL + '/api/payment', { token: token, total: this.props.total }).then(response => {
           window.location.href="/thankyou";
           axios.delete(process.env.REACT_APP_API_URL + '/ordercomplete', { params: {userid} })
-      });
+        });
     }
 
     onClickPay (e) {
@@ -50,8 +50,8 @@ class Checkout extends Component {
     }
       
     render() {
-      console.log('state', this.state.total);
-      console.log('props', this.props.total);
+      // console.log('state', this.state.total);
+      // console.log('props', this.props.total);
         return (
           <div className='checkout-container'>
           

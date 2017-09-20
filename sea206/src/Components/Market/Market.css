@@ -60,17 +60,9 @@ table {
 	font-size: 35px;
 }
 
-.market-cart-button-container {
-	margin-left: 50px;
-}
-
-.market-cart-button {
-	height: 25px;
-	fill: black;	
-}
 
 .store-main {
-    /* margin-top: 44px; */
+	/* margin-top: 44px; */
     /* height: 20vh; */
     /* height: 900px; */
     color: black;
@@ -78,6 +70,7 @@ table {
 	display: flex;
 	flex-wrap: wrap;
 }
+
 
 .products {
 	display: flex;

@@ -30,7 +30,6 @@ class ProductPage extends Component {
 
     componentDidMount() {
         axios.get(process.env.REACT_APP_API_URL + `/product/${this.props.match.params.productID}`).then( (results) => {
-        // console.log(results.data);
             this.setState({
                 product: results.data
             })
@@ -39,7 +38,6 @@ class ProductPage extends Component {
             this.setState({
                 reviews: results.data
             })
-            // console.log(this.state.reviews)
         })
 
     }
@@ -60,11 +58,11 @@ class ProductPage extends Component {
         this.setState({
             addedToCart: true
         });
-        setTimeout( () => {
+        setTimeout( () => {  // this is causing an error when an item is added to cart and user navigates to cart
             this.setState({
               addedToCart: false,
             });
-          }, 1000);
+        }, 500);
 
         let userid = localStorage.getItem('userid');
         if(!userid) {

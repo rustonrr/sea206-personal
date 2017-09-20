@@ -23,7 +23,6 @@ class Market extends Component {
 
     componentDidMount() {
         axios.get(process.env.REACT_APP_API_URL + '/products').then( (results) => {
-            console.log(results.data)
             this.setState({
                 products: results.data
             })
@@ -81,6 +80,9 @@ class Market extends Component {
                 </div>
 
                 <div className='store-main'>
+                    {/* <div className='market-cart-button-container'>
+                        <Link className='market-cart-button-link' to='/cart'><img className='market-cart-button' alt='cart' src='https://image.flaticon.com/icons/svg/2/2772.svg' /></Link>
+                    </div> */}
                     <div className='products'>
                         {this.state.products.map((product, index) => {
                             return (

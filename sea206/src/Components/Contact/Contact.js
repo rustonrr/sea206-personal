@@ -60,9 +60,9 @@ class Market extends Component {
                         Contact Us
                     </div>
                     <div className='contact-info'>
-                        Email us at: sea206clothing@gmail.com
-                        <br />
-                        Text us at: (206) 707-5823
+                        Email us at: rustonreformado@gmail.com
+                        {/* <br />
+                        Text us at: (206) 707-5823 */}
                         <br />
                         <br />
 
