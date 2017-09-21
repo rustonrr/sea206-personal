@@ -71,6 +71,28 @@ table {
 	flex-wrap: wrap;
 }
 
+.market-filter {
+	margin-top: 3%;
+	margin-left: 3%;
+	/* background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0; */
+	height: 40px;
+	overflow: hidden;
+	width: 110px;
+	font-size: 20px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	/* background-color: #3b8ec2; */
+	/* color: #fff; */
+}
+.market-filter select {
+	background: transparent;
+	border: none;
+	font-size: 14px;
+	height: 29px;
+	padding: 5px; /* If you add too much padding here, the options won't show in IE */
+	width: 268px;
+ }
 
 .products {
 	display: flex;

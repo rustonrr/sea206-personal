@@ -19,10 +19,21 @@ class Market extends Component {
         this.handleScroll = this.handleScroll.bind(this);
         this.handleMouseEnter = this.handleMouseEnter.bind(this);
         this.handleMouseLeave = this.handleMouseLeave.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     componentDidMount() {
         axios.get(process.env.REACT_APP_API_URL + '/products').then( (results) => {
+            this.setState({
+                products: results.data
+            })
+        })
+    }
+
+    handleInputChange(event) {
+        // console.log('input', event.target.value)
+        axios.get(process.env.REACT_APP_API_URL + `/products/${event.target.value}`).then( (results) => {
+            // console.log(results.data);
             this.setState({
                 products: results.data
             })
@@ -80,9 +91,14 @@ class Market extends Component {
                 </div>
 
                 <div className='store-main'>
-                    {/* <div className='market-cart-button-container'>
-                        <Link className='market-cart-button-link' to='/cart'><img className='market-cart-button' alt='cart' src='https://image.flaticon.com/icons/svg/2/2772.svg' /></Link>
-                    </div> */}
+
+                <select className='market-filter' onChange={this.handleInputChange}>
+                    <option defaultValue="all">All</option>
+                    <option value="hoodies">Hoodies</option>
+                    <option value="tees">Tees</option>
+                    <option value="mugs">Mugs</option>
+                </select>
+
                     <div className='products'>
                         {this.state.products.map((product, index) => {
                             return (

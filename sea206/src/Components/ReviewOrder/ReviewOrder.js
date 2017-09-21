@@ -27,7 +27,7 @@ class ReviewOrder extends Component {
             params: {userid: localStorage.getItem('userid')}
         })
             .then( (results) => {
-            // console.log(results.data);
+            console.log(results.data);
             this.setState({
                 order: results.data
             })
@@ -123,7 +123,7 @@ class ReviewOrder extends Component {
                 </div>
 
             <div className='checkout-component'>
-                <Checkout total={total} />
+                <Checkout total={total} order={this.state.order} />
             </div>
 
                 <Footer/>

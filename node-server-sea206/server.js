@@ -19,6 +19,11 @@ massive( process.env.CONNECTION_STRING ).then( (dbInstance) => {
     
     app.get('/sampleproducts', products_controller.getSampleProducts);
     app.get('/products', products_controller.getProducts);
+    app.get('/products/all', products_controller.getProducts);
+    app.get('/products/hoodies', products_controller.getHoodies)
+    app.get('/products/tees', products_controller.getTees)
+    app.get('/products/mugs', products_controller.getMugs)
+
     app.get('/product/:productid', products_controller.getProduct);
 
     app.post('/addToCart', cart_controller.addToCart);

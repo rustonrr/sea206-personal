@@ -8,6 +8,33 @@ module.exports = {
           res.status(500).send(err);
         });
     },
+    getHoodies: ( req, res, next ) => {
+      const dbInstance = req.app.get('db');
+
+      dbInstance.get_hoodies()
+        .then(products => { res.status(200).send(products); })
+        .catch( err => {
+          res.status(500).send(err);
+        })
+    },
+    getTees: ( req, res, next ) => {
+      const dbInstance = req.app.get('db');
+
+      dbInstance.get_tees()
+        .then(products => { res.status(200).send(products); })
+        .catch( err => {
+          res.status(500).send(err);
+        })
+    },
+    getMugs: ( req, res, next ) => {
+      const dbInstance = req.app.get('db');
+
+      dbInstance.get_mugs()
+        .then(products => { res.status(200).send(products); })
+        .catch( err => {
+          res.status(500).send(err);
+        })
+    },
     getProduct: ( req, res, next ) => {
       const dbInstance = req.app.get('db');
 

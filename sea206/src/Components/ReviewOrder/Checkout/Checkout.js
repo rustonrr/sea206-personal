@@ -51,15 +51,15 @@ class Checkout extends Component {
       
     render() {
       // console.log('state', this.state.total);
-      // console.log('props', this.props.total);
+      // console.log('props', this.props.order);
         return (
           <div className='checkout-container'>
           
             <a className='Pay-Now' href="http://localhost:3000/" onClick={this.onClickPay}>Pay ${this.props.total}.00</a>
           </div>
         );
-      }
     }
+}
 
 export default Checkout;
 
