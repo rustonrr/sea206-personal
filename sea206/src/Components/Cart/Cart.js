@@ -66,6 +66,10 @@ class Cart extends Component {
         })
     }
 
+    goToReview(){
+        alert('This website was created as a school project by Ruston Reformado. No items will be sold or shipped. To purchase the products listed on this website, please visit www.sea206.com. Thanks!')
+    }
+
 
     render() {
         let subtotal = function(array) {
@@ -128,7 +132,7 @@ class Cart extends Component {
                     <br />
                     <p className='shipping-taxes'>Shipping and taxes calculated at checkout</p>
                     <div className='review-order-button-container'>
-                        <Link to='./revieworder'><button className='review-order-button'>Review Order</button></Link>
+                        <Link to='./revieworder'><button onClick={this.goToReview} className='review-order-button'>Review Order</button></Link>
                     </div>
                 </div>
 

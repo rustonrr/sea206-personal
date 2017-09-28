@@ -59,6 +59,7 @@ class ProductPage extends Component {
             addedToCart: true
         });
         setTimeout( () => {  // this is causing an error when an item is added to cart and user navigates to cart
+                             // before the the timeout finishes
             this.setState({
               addedToCart: false,
             });

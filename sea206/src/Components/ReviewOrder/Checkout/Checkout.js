@@ -36,6 +36,7 @@ class Checkout extends Component {
     }
 
     onClickPay (e) {
+        alert('To test the payment system, use card number 4242 4242 4242 4242 with any 3 digit CVC number and future expiration date')
         e.preventDefault()
         this.setState({ fireRedirect: true })
 
