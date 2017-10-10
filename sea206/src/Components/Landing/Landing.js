@@ -32,12 +32,12 @@ handleScroll() {
     this.setState({
         scrolled: true
     })
-      // console.log('scroll1', this.state.scrolled)
-    if(document.body.scrollTop === 0) {
+    if(window.scrollY === 0) {
         this.setState({
             scrolled: false
         })
     }
+    // console.log('scroll1', this.state.scrolled)
 }
 
 handleMouseEnter(product, id) {

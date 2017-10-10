@@ -23,7 +23,7 @@ class Market extends Component {
             scrolled: true
         })
         // console.log('scroll1', this.state.scrolled)
-        if(document.body.scrollTop === 0) {
+        if(window.scrollY === 0) {
             this.setState({
                 scrolled: false
             })
